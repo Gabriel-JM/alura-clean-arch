@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@/": "./src/",
+    "std/bdd": "https://deno.land/std@0.148.0/testing/bdd.ts",
+    "std/mock": "https://deno.land/std@0.148.0/testing/mock.ts",
+    "std/asserts": "https://deno.land/std@0.148.0/testing/asserts.ts"
+  }
+}
