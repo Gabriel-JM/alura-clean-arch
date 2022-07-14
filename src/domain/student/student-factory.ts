@@ -6,7 +6,7 @@ export class StudentBuilder {
   #student?: Student
 
   withNameCpfEmail(name: string, cpf: string, email: string) {
-    this.#student = new Student(name, new CPF(cpf), new Email(email))
+    this.#student = new Student(name, new CPF(cpf), new Email(email), '')
     return this
   }
 
