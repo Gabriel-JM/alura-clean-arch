@@ -3,6 +3,7 @@
     "@/": "./src/",
     "std/bdd": "https://deno.land/std@0.148.0/testing/bdd.ts",
     "std/mock": "https://deno.land/std@0.148.0/testing/mock.ts",
-    "std/asserts": "https://deno.land/std@0.148.0/testing/asserts.ts"
+    "std/asserts": "https://deno.land/std@0.148.0/testing/asserts.ts",
+    "x/postgresjs": "https://deno.land/x/postgresjs@v3.2.4/mod.js"
   }
 }

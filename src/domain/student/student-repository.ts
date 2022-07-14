@@ -1,7 +1,7 @@
 import { Student } from './student.ts'
 
 export interface StudentRepository {
-  enroll(): Promise<void>
+  enroll(student: Student): Promise<void>
   searchByCPF(cpf: string): Promise<Student>
   listAllStudents(): Promise<Student[]>
 }
