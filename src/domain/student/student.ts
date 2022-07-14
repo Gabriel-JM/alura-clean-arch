@@ -8,7 +8,8 @@ export class Student {
   constructor(
     public name: string,
     public cpf: CPF,
-    public email: Email
+    public email: Email,
+    public password: string
   ) {}
 
   get phones() {
