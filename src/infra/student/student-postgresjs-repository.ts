@@ -1,11 +1,13 @@
+import postgres from 'x/postgresjs'
 import { StudentRepository } from '@/domain/student/student-repository.ts'
 import { Student } from '@/domain/student/student.ts'
-import postgres from 'x/postgresjs'
+import { StudentBuilder } from '@/domain/student/student-factory.ts'
+import { StudentNotFound } from '@/domain/student/student-not-found.ts'
 
 export class StudentPostgresjsRepository implements StudentRepository {
-  #sql: postgres.Sql<any>
+  #sql: postgres.Sql<Student & Record<string, unknown>>
 
-  constructor(sql: postgres.Sql<any>) {
+  constructor(sql: postgres.Sql<Student & Record<string, unknown>>) {
     this.#sql = sql
   }
   
@@ -27,11 +29,45 @@ export class StudentPostgresjsRepository implements StudentRepository {
     }
   }
   
-  searchByCPF(cpf: string): Promise<Student> {
-    throw new Error("Method not implemented.");
+  async searchByCPF(cpf: string): Promise<Student> {
+    const [studentData] = await this.#sql`
+      SELECT id, name, email FROM student WHERE cpf = ${cpf}
+    `
+
+    if (!studentData) {
+      throw new StudentNotFound(cpf)
+    }
+
+    const builder = new StudentBuilder()
+      .withNameCpfEmail(studentData.name, cpf, studentData.email)
+
+    const phones = await this.#sql`
+      SELECT ddd, number FROM phones WHERE student_id = ${studentData.id}
+    `
+
+    for (const phone of phones) {
+      builder.withPhone(phone.ddd, phone.number)
+    }
+
+    return builder.build()
   }
   
-  listAllStudents(): Promise<Student[]> {
-    throw new Error("Method not implemented.");
+  async listAllStudents(): Promise<Student[]> {
+    const students = await this.#sql`SELECT id, name, cpf, email FROM student`
+
+    return Promise.all(students.map(async student => {
+      const builder = new StudentBuilder()
+        .withNameCpfEmail(student.name, student.cpf, student.email)
+
+      const phones = await this.#sql`
+        SELECT ddd, number FROM phones WHERE student_id = ${student.id}
+      `
+
+      for (const phone of phones) {
+        builder.withPhone(phone.ddd, phone.number)
+      }
+
+      return builder.build()
+    }))
   }
 }

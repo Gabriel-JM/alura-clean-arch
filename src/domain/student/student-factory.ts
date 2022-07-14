@@ -16,6 +16,6 @@ export class StudentBuilder {
   }
 
   build() {
-    return this.#student
+    return this.#student!
   }
 }
