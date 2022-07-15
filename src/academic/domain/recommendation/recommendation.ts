@@ -1,4 +1,4 @@
-import { Student } from '@/domain/student/student.ts'
+import { Student } from '@/academic/domain/student/student.ts'
 
 export class Recommendation {
   #whoRecommended: Student

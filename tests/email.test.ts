@@ -1,6 +1,6 @@
 import { describe, it } from 'std/bdd'
 import { assertThrows, assertEquals } from 'std/asserts'
-import { Email } from '@/domain/student/email.ts'
+import { Email } from '@/academic/domain/student/email.ts'
 
 describe('Email value object', () => {
   it('should not create invalid Emails', () => {

@@ -1,7 +1,7 @@
 import { describe, it } from 'std/bdd'
 import {  } from 'std/asserts'
 import { spy, assertSpyCall } from 'std/mock'
-import { EnrollStudent } from '@/application/student/enroll-student.ts'
+import { EnrollStudent } from '@/academic/application/student/enroll-student.ts'
 
 function makeSut() {
   const fakeStudentRepository: any = {

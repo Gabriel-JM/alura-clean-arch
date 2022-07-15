@@ -1,4 +1,4 @@
-import { CPF } from '@/domain/student/cpf.ts'
+import { CPF } from '@/academic/domain/student/cpf.ts'
 
 export interface Stamp {
   cpfStudent: CPF

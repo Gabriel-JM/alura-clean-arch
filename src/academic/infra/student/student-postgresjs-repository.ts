@@ -1,8 +1,8 @@
 import postgres from 'x/postgresjs'
-import { StudentRepository } from '@/domain/student/student-repository.ts'
-import { Student } from '@/domain/student/student.ts'
-import { StudentBuilder } from '@/domain/student/student-factory.ts'
-import { StudentNotFound } from '@/domain/student/student-not-found.ts'
+import { StudentRepository } from '@/academic/domain/student/student-repository.ts'
+import { Student } from '@/academic/domain/student/student.ts'
+import { StudentBuilder } from '@/academic/domain/student/student-factory.ts'
+import { StudentNotFound } from '@/academic/domain/student/student-not-found.ts'
 
 export class StudentPostgresjsRepository implements StudentRepository {
   #sql: postgres.Sql<Student & Record<string, unknown>>

@@ -1,8 +1,8 @@
 import { describe, it } from 'std/bdd'
 import { assertThrows } from 'std/asserts'
-import { Student } from '@/domain/student/student.ts'
-import { CPF } from '@/domain/student/cpf.ts'
-import { Email } from '@/domain/student/email.ts'
+import { Student } from '@/academic/domain/student/student.ts'
+import { CPF } from '@/academic/domain/student/cpf.ts'
+import { Email } from '@/academic/domain/student/email.ts'
 
 describe('Student', () => {
   it('should throw an Error if is add more then two phone numbers to a student', () => {

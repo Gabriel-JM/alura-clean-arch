@@ -1,6 +1,6 @@
 import { describe, it } from 'std/bdd'
 import { assertEquals, assertThrows } from 'std/asserts'
-import { Phone } from '@/domain/student/phone.ts'
+import { Phone } from '@/academic/domain/student/phone.ts'
 
 describe('Phone value object', () => {
   it('should not a phone with invalid DDD', () => {

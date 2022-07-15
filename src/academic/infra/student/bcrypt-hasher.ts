@@ -1,4 +1,4 @@
-import { Hasher } from '@/domain/student/hasher.ts'
+import { Hasher } from '@/academic/domain/student/hasher.ts'
 import { hashSync, compareSync } from 'x/bcrypt'
 
 export class BcryptHasher implements Hasher {

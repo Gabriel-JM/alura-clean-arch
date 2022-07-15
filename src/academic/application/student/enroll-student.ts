@@ -1,7 +1,7 @@
-import { StudentRepository } from '@/domain/student/student-repository.ts'
-import { StudentBuilder } from '@/domain/student/student-factory.ts'
-import { EventPublisher } from '@/domain/event-publisher.ts'
-import { EnrolledStudent } from '@/domain/student/enrolled-student.ts'
+import { StudentRepository } from '@/academic/domain/student/student-repository.ts'
+import { StudentBuilder } from '@/academic/domain/student/student-factory.ts'
+import { EventPublisher } from '@/academic/domain/event-publisher.ts'
+import { EnrolledStudent } from '@/academic/domain/student/enrolled-student.ts'
 import { EnrollStudentDTO } from './enroll-student-dto.ts'
 
 export class EnrollStudent {
