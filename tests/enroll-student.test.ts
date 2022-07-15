@@ -7,11 +7,15 @@ function makeSut() {
   const fakeStudentRepository: any = {
     enroll: spy(() => Promise.resolve())
   }
-  const sut = new EnrollStudent(fakeStudentRepository)
+  const fakeEventPublisher: any = {
+    publish: spy()
+  }
+  const sut = new EnrollStudent(fakeStudentRepository, fakeEventPublisher)
 
   return {
     sut,
-    fakeStudentRepository
+    fakeStudentRepository,
+    fakeEventPublisher
   }
 }
 
@@ -27,5 +31,18 @@ describe('EnrollStudent', () => {
     })
 
     assertSpyCall(fakeStudentRepository.enroll, 0)
+  })
+
+  it('should call EventPublisher.publish with correct values', async () => {
+    const { sut, fakeEventPublisher } = makeSut()
+
+    await sut.execute({
+      name: 'any_name',
+      cpf: '123.456.789-00',
+      email: 'any@email.com',
+      password: 'any_password'
+    })
+
+    assertSpyCall(fakeEventPublisher.publish, 0)
   })
 })
