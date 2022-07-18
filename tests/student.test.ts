@@ -1,7 +1,7 @@
 import { describe, it } from 'std/bdd'
 import { assertThrows } from 'std/asserts'
 import { Student } from '@/academic/domain/student/student.ts'
-import { CPF } from '@/academic/domain/student/cpf.ts'
+import { CPF } from '@/shared/domain/cpf.ts'
 import { Email } from '@/academic/domain/student/email.ts'
 
 describe('Student', () => {

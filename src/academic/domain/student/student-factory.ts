@@ -1,4 +1,4 @@
-import { CPF } from './cpf.ts'
+import { CPF } from '@/shared/domain/cpf.ts'
 import { Email } from './email.ts'
 import { Student } from './student.ts'
 

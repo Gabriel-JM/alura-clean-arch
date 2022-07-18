@@ -1,5 +1,5 @@
 import { Email } from './email.ts'
-import { CPF } from './cpf.ts'
+import { CPF } from '@/shared/domain/cpf.ts'
 import { Phone } from './phone.ts'
 
 export class Student {

@@ -1,6 +1,6 @@
 import { describe, it } from 'std/bdd'
 import { assertEquals, assertThrows } from 'std/asserts'
-import { CPF } from '@/academic/domain/student/cpf.ts'
+import { CPF } from '@/shared/domain/cpf.ts'
 
 describe('CPF value object', () => {
   it('should not create an invalid CPF', () => {
