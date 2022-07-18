@@ -1,5 +1,5 @@
 import { EnrolledStudent } from './enrolled-student.ts'
-import { Listener } from '../listener.ts'
+import { Listener } from '@/shared/domain/events/listener.ts'
 
 export class EnrolledStudentLog extends Listener {
   on(event: EnrolledStudent) {

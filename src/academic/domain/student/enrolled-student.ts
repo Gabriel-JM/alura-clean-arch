@@ -1,4 +1,5 @@
-import { Event } from '../event.ts'
+import { Event } from '@/shared/domain/events/event.ts'
+import { EventTypes } from '@/shared/domain/events/event-types.ts'
 
 export class EnrolledStudent implements Event {
   readonly #studentCPF: string
@@ -8,8 +9,18 @@ export class EnrolledStudent implements Event {
     this.#studentCPF = studentCPF
   }
 
+  get type(): EventTypes {
+    return EventTypes.ENROLLED_STUDENT
+  }
+
   get studentCPF() {
     return this.#studentCPF
+  }
+
+  get info(): Map<string, any> {
+    return new Map([
+      ['cpf', this.#studentCPF]
+    ])
   }
   
   when() {
